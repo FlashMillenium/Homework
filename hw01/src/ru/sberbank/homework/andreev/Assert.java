@@ -32,8 +32,8 @@ public class Assert {
         try {
             method.run();
         } catch (Exception e) {
-            if (e.getClass().getCanonicalName().equals(expected.getClass().getCanonicalName())
-                    && e.getMessage().equals(expected.getMessage()))
+            if ((e.getClass().getCanonicalName().equals(expected.getClass().getCanonicalName()))
+                    && (e.getMessage().equals(expected.getMessage())))
                 passed = true;
         }
         if (passed) {
