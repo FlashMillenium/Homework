@@ -22,58 +22,50 @@ public class SimpleCalculatorTest {
     }
 
     private static void happyPathIntSum() {
-        int actual;
         int expected = 18;
-        actual = SimpleCalculator.sum(8, 10);
+        int actual = SimpleCalculator.sum(8, 10);
         assertEquals(expected, actual);
     }
 
     private static void happyPathDoubleSum() {
-        double actual;
         double expected = 42.42;
-        actual = SimpleCalculator.sum(42, 0.42);
+        double actual = SimpleCalculator.sum(42, 0.42);
         assertEquals(expected, actual);
     }
 
     private static void happyPathIntMult() {
-        int actual;
         int expected = 144;
-        actual = SimpleCalculator.multiply(12, 12);
+        int actual = SimpleCalculator.multiply(12, 12);
         assertEquals(expected, actual);
     }
 
     private static void happyPathDoubleMult() {
-        double actual;
         double expected = 99.8;
-        actual = SimpleCalculator.multiply(998.0, 0.1);
+        double actual = SimpleCalculator.multiply(998.0, 0.1);
         assertEquals(expected, actual);
     }
 
     private static void happyPathIntSubstraction() {
-        int actual;
         int expected = 75;
-        actual = SimpleCalculator.substract(100, 25);
+        int actual = SimpleCalculator.substract(100, 25);
         assertEquals(expected, actual);
     }
 
     private static void happyPathDoubleSubstraction() {
-        double actual;
         double expected = 150.123;
-        actual = SimpleCalculator.substract(300, 149.877);
+        double actual = SimpleCalculator.substract(300, 149.877);
         assertEquals(expected, actual);
     }
 
     private static void happyPathIntDivide() {
-        int actual;
         int expected = 111;
-        actual = SimpleCalculator.divide(555, 5);
+        int actual = SimpleCalculator.divide(555, 5);
         assertEquals(expected, actual);
     }
 
     private static void happyPathDoubleDivide() {
-        double actual;
         double expected = 0.03;
-        actual = SimpleCalculator.divide(0.3, 10);
+        double actual = SimpleCalculator.divide(0.3, 10);
         assertEquals(expected, actual);
     }
 
