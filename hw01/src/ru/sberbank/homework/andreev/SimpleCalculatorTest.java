@@ -4,12 +4,6 @@ import static ru.sberbank.homework.andreev.Assert.*;
 
 public class SimpleCalculatorTest {
     public static void main(String[] args) {
-        Exception e = new ArithmeticException();
-        Class<? extends Exception> aClass = e.getClass();
-        Class arithmeticExceptionClass = ArithmeticException.class;
-        System.out.println(arithmeticExceptionClass.getCanonicalName());
-
-
         startAllTests();
     }
 
