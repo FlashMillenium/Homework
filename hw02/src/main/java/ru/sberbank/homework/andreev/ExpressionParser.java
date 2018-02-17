@@ -48,11 +48,11 @@ public class ExpressionParser {
         if (element.matches(RegExp.INTDECIMAL)) {
             result = BigDecimal.valueOf(Long.parseLong(innerElement));
         } else if (element.matches(RegExp.INTOCTAL)) {
-            result = BigDecimal.valueOf(Long.parseLong(innerElement.substring(1), 8));
+            result = BigDecimal.valueOf(Long.parseLong(innerElement.replaceFirst("0",""), 8));
         } else if (element.matches(RegExp.INTHEXADECIMAL)) {
-            result = BigDecimal.valueOf(Long.parseLong(innerElement.substring(2), 16));
+            result = BigDecimal.valueOf(Long.parseLong(innerElement.replaceFirst("0x",""), 16));
         } else if (element.matches(RegExp.INTBINARY)) {
-            result = BigDecimal.valueOf(Long.parseLong(innerElement.substring(2), 2));
+            result = BigDecimal.valueOf(Long.parseLong(innerElement.replaceFirst("0b",""), 2));
         } else if (element.matches(RegExp.FlOAT)) {
             result = BigDecimal.valueOf(Double.parseDouble(innerElement));
         }
