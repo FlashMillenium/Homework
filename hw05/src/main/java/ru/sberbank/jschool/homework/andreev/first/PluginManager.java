@@ -13,7 +13,6 @@ public class PluginManager {
     private MyClassloader loader;
 
     public PluginManager(String rootDirectory) throws PluginNotFoundException {
-        System.out.println(Plugin.class.getCanonicalName());
         URL[] rootUrl = new URL[1];
         try {
             rootUrl[0] = new File(System.getProperty("user.dir") + File.separator + rootDirectory + File.separator).toURI().toURL();
