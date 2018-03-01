@@ -34,7 +34,7 @@ public class CalculatorOnArray implements Calculator {
                 .distinct()
                 .sorted(Comparator.reverseOrder())
                 .forEach(this::executeOperations);
-        return result.get(0).stripTrailingZeros().toPlainString();
+        return result.get(0).setScale(2, BigDecimal.ROUND_HALF_UP).stripTrailingZeros().toPlainString();
     }
 
     private void executeOperations(int priority) {
