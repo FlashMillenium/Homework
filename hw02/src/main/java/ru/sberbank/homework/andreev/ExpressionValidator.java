@@ -14,7 +14,7 @@ public class ExpressionValidator {
     }
 
     public boolean isExpressionValid() {
-        String regexp="(.+ )?(" + RegExp.OPERATIONS + " .+)+";
+        String regexp = "(.+ )?(" + RegExp.OPERATIONS + " .+)+";
         return expression.matches(regexp);
     }
 
@@ -35,7 +35,8 @@ public class ExpressionValidator {
                 "(0[xX][0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?[lL]?)" + "|" +
                 "(0[bB][01]([01_]*[01])?[lL]?)" + "|" +
                 "(" + "((\\d([0-9_]*\\d)?)\\.(\\d([0-9_]*\\d)?))([eE][+\\-]?(\\d([0-9_]*\\d)?))?[fFdD]?" + "|" +
-                "((\\d([0-9_]*\\d)?))([eE][+\\-]?(\\d([0-9_]*\\d)?))?[fFdD]?" + "|" +
+                "((\\d([0-9_]*\\d)?))([eE][+\\-]?(\\d([0-9_]*\\d)?))[fFdD]?" + "|" +
+                "(\\d[fFdD])" + "|" +
                 "(0[xX][0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?[pP][+\\-]?\\d([0-9_]*\\d)?)" +
                 ")" + ")";
         private static String OPERATIONS = "[" + Arrays.stream(Operation.values())
