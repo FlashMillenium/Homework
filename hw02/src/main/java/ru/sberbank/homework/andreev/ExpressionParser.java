@@ -45,15 +45,15 @@ public class ExpressionParser {
     private BigDecimal convertElement(String element) {
         String innerElement = prepareElementForConversion(element);
         BigDecimal result = null;
-        if (element.matches(RegExp.INTDECIMAL)) {
+        if (element.matches(RegExp.INT_DECIMAL)) {
             result = BigDecimal.valueOf(Long.parseLong(innerElement));
-        } else if (element.matches(RegExp.INTOCTAL)) {
+        } else if (element.matches(RegExp.INT_OCTAL)) {
             result = BigDecimal.valueOf(Long.parseLong(innerElement.replaceFirst("0", ""), 8));
-        } else if (element.matches(RegExp.INTHEXADECIMAL)) {
+        } else if (element.matches(RegExp.INT_HEXADECIMAL)) {
             result = BigDecimal.valueOf(Long.parseLong(innerElement.replaceFirst("0x", ""), 16));
-        } else if (element.matches(RegExp.INTBINARY)) {
+        } else if (element.matches(RegExp.INT_BINARY)) {
             result = BigDecimal.valueOf(Long.parseLong(innerElement.replaceFirst("0b", ""), 2));
-        } else if (element.matches(RegExp.FlOAT)) {
+        } else if (element.matches(RegExp.FLOAT)) {
             result = BigDecimal.valueOf(Double.parseDouble(innerElement));
         }
         return result;
@@ -69,32 +69,4 @@ public class ExpressionParser {
         return elementWithoutUnderscore;
     }
 
-    private static class RegExp {
-        private static String INTDECIMAL = "[+\\-]?(0|([1-9]([0-9_]*\\d)?))[lL]?";
-        private static String INTOCTAL = "[+\\-]?0([0-7]|_)*[0-7][lL]?";
-        private static String INTHEXADECIMAL = "[+\\-]?0[xX][0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?[lL]?";
-        private static String INTBINARY = "[+\\-]?0[bB][01]([01_]*[01])?[lL]?";
-        private static String FlOAT = "[+\\-]?" + "(" +
-                "((\\d([0-9_]*\\d)?)\\.(\\d([0-9_]*\\d)?))([eE][+\\-]?(\\d([0-9_]*\\d)?))?[fFdD]?" + "|" +
-                "((\\d([0-9_]*\\d)?))([eE][+\\-]?(\\d([0-9_]*\\d)?))[fFdD]?" + "|" +
-                "(\\d[fFdD])" + "|" +
-                "(0[xX][0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?[pP][+\\-]?\\d([0-9_]*\\d)?)" + ")";
-        //        private static String FlOAT = "[+\\-]?" + "(" +
-//                "((\\d([0-9_]*\\d)?)\\.(\\d([0-9_]*\\d)?))([eE][+\\-]?(\\d([0-9_]*\\d)?))?[fFdD]?" + "|" +
-//                "((\\d([0-9_]*\\d)?))([eE][+\\-]?(\\d([0-9_]*\\d)?))?[fFdD]?" + "|" +
-//                "(0[xX][0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?[pP][+\\-]?\\d([0-9_]*\\d)?)" + ")";
-        private static String LITERAL = "[+\\-]?" + "(" +
-                "((0|([1-9]([0-9_]*\\d)?))[lL]?)" + "|" +
-                "(0([0-7]|_)*[0-7][lL]?)" + "|" +
-                "(0[xX][0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?[lL]?)" + "|" +
-                "(0[bB][01]([01_]*[01])?[lL]?)" + "|" +
-                "(" + "((\\d([0-9_]*\\d)?)\\.(\\d([0-9_]*\\d)?))([eE][+\\-]?(\\d([0-9_]*\\d)?))?[fFdD]?" + "|" +
-                "((\\d([0-9_]*\\d)?))([eE][+\\-]?(\\d([0-9_]*\\d)?))[fFdD]?" + "|" +
-                "(\\d[fFdD])" + "|" +
-                "(0[xX][0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?[pP][+\\-]?\\d([0-9_]*\\d)?)" +
-                ")" + ")";
-        private static String OPERATIONS = "[" + Arrays.stream(Operation.values())
-                .map(Operation::getRegExpSymbol)
-                .collect(Collectors.joining()) + "]";
-    }
 }
