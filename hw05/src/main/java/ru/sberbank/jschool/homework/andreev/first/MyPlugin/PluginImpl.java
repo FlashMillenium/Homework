@@ -1,4 +1,4 @@
-import ru.sberbank.jschool.homework.classloaders.first.Plugin;
+import ru.sberbank.jschool.homework.andreev.first.Plugin;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package ru.sberbank.jschool.homework.classloaders.first;
+package ru.sberbank.jschool.homework.andreev.first;
 
 public interface Plugin<T> {
     /**
